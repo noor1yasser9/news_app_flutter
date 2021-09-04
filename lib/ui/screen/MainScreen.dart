@@ -1,0 +1,101 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:flutter/material.dart';
+import 'package:news_app/bloc/BottomNavBarBloc.dart';
+import 'package:news_app/style/ThemeStyle.dart';
+
+class MainScreen extends StatefulWidget {
+  const MainScreen({Key key}) : super(key: key);
+
+  @override
+  _MainScreenState createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  BottomNavBarBloc _bottomNavBarBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _bottomNavBarBloc = BottomNavBarBloc();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black26,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+        child: AppBar(
+          backgroundColor: ThemeStyle.mainColor,
+          title: Text(
+            "News App",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ),
+      body: SafeArea(
+        child: StreamBuilder<NavBarItem>(
+          stream: _bottomNavBarBloc.itemStream,
+          initialData: _bottomNavBarBloc.defaultItem,
+          builder: (BuildContext context, AsyncSnapshot<NavBarItem> snapshot) {
+            switch (snapshot.data) {
+              case NavBarItem.HOME:
+                return Container();
+              case NavBarItem.SOURCES:
+                return Container();
+              case NavBarItem.SEARCH:
+                return Container();
+            }
+            return Container();
+          },
+        ),
+      ),
+      bottomNavigationBar: StreamBuilder(
+        stream: _bottomNavBarBloc.itemStream,
+        initialData: _bottomNavBarBloc.defaultItem,
+        builder: (BuildContext context, AsyncSnapshot<NavBarItem> snapshot) {
+          return Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.grey[100], spreadRadius: 0, blurRadius: 10.0)
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(30.0),
+                  topLeft: Radius.circular(30.0)),
+              child: BottomNavigationBar(
+                backgroundColor: Colors.white10,
+                iconSize: 20.0,
+                unselectedItemColor: ThemeStyle.grey,
+                unselectedFontSize: 9.5,
+                selectedFontSize: 9.5,
+                type: BottomNavigationBarType.fixed,
+                fixedColor: ThemeStyle.mainColor,
+                currentIndex: snapshot.data.index,
+                onTap: _bottomNavBarBloc.pickItem,
+                items: [
+                  BottomNavigationBarItem(
+                      icon: Icon(EvaIcons.homeOutline),
+                      label: "Home",
+                      activeIcon: Icon(EvaIcons.home)),
+                  BottomNavigationBarItem(
+                      icon: Icon(EvaIcons.gridOutline),
+                      label: "Source",
+                      activeIcon: Icon(EvaIcons.grid)),
+                  BottomNavigationBarItem(
+                      icon: Icon(EvaIcons.searchOutline),
+                      label: "Search",
+                      activeIcon: Icon(EvaIcons.search))
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
