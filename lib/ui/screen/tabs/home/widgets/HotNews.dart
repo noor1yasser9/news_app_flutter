@@ -4,8 +4,8 @@ import 'package:news_app/model/article.dart';
 import 'package:news_app/model/article_response.dart';
 import 'package:news_app/style/ThemeStyle.dart';
 import 'package:news_app/utils/Error.dart';
+import 'package:news_app/utils/function.dart';
 import 'package:news_app/utils/loader.dart';
-import 'package:timeago/timeago.dart' as timeago;
 
 class HotNews extends StatefulWidget {
   const HotNews({Key key}) : super(key: key);
@@ -150,7 +150,5 @@ class _HotNewsState extends State<HotNews> {
     }
   }
 
-  String timeUntil(DateTime date) {
-    return timeago.format(date, allowFromNow: true, locale: 'en');
-  }
+
 }

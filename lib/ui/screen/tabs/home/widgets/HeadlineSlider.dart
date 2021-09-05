@@ -5,8 +5,8 @@ import 'package:news_app/model/article.dart';
 import 'package:news_app/model/article_response.dart';
 import 'package:news_app/ui/screen/SourceDetailsScreen.dart';
 import 'package:news_app/utils/Error.dart';
+import 'package:news_app/utils/function.dart';
 import 'package:news_app/utils/loader.dart';
-import 'package:timeago/timeago.dart' as timeago;
 
 class HeadlineSlider extends StatefulWidget {
   const HeadlineSlider({Key key}) : super(key: key);
@@ -137,7 +137,5 @@ class _HeadlineSliderState extends State<HeadlineSlider> {
         .toList();
   }
 
-  String timeUntil(DateTime date) {
-    return timeago.format(date, allowFromNow: true, locale: 'en');
-  }
+
 }
