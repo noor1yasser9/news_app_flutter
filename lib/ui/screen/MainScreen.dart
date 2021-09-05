@@ -2,6 +2,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/bloc/BottomNavBarBloc.dart';
 import 'package:news_app/style/ThemeStyle.dart';
+import 'package:news_app/ui/screen/tabs/HomeScreen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key key}) : super(key: key);
@@ -22,7 +23,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black26,
+      backgroundColor: ThemeStyle.dark,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),
         child: AppBar(
@@ -40,7 +41,7 @@ class _MainScreenState extends State<MainScreen> {
           builder: (BuildContext context, AsyncSnapshot<NavBarItem> snapshot) {
             switch (snapshot.data) {
               case NavBarItem.HOME:
-                return Container();
+                return HomeScreen();
               case NavBarItem.SOURCES:
                 return Container();
               case NavBarItem.SEARCH:
@@ -56,41 +57,38 @@ class _MainScreenState extends State<MainScreen> {
         builder: (BuildContext context, AsyncSnapshot<NavBarItem> snapshot) {
           return Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30), topRight: Radius.circular(30)),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.grey[100], spreadRadius: 0, blurRadius: 10.0)
-              ],
+              color: Colors.transparent,
+              borderRadius: BorderRadius.all(Radius.circular(15)),
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(30.0),
-                  topLeft: Radius.circular(30.0)),
-              child: BottomNavigationBar(
-                backgroundColor: Colors.white10,
-                iconSize: 20.0,
-                unselectedItemColor: ThemeStyle.grey,
-                unselectedFontSize: 9.5,
-                selectedFontSize: 9.5,
-                type: BottomNavigationBarType.fixed,
-                fixedColor: ThemeStyle.mainColor,
-                currentIndex: snapshot.data.index,
-                onTap: _bottomNavBarBloc.pickItem,
-                items: [
-                  BottomNavigationBarItem(
-                      icon: Icon(EvaIcons.homeOutline),
-                      label: "Home",
-                      activeIcon: Icon(EvaIcons.home)),
-                  BottomNavigationBarItem(
-                      icon: Icon(EvaIcons.gridOutline),
-                      label: "Source",
-                      activeIcon: Icon(EvaIcons.grid)),
-                  BottomNavigationBarItem(
-                      icon: Icon(EvaIcons.searchOutline),
-                      label: "Search",
-                      activeIcon: Icon(EvaIcons.search))
-                ],
+            child: Padding(
+              padding: EdgeInsets.all(8),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                child: BottomNavigationBar(
+                  backgroundColor: ThemeStyle.mainColor,
+                  iconSize: 20.0,
+                  unselectedItemColor: ThemeStyle.titleColor,
+                  unselectedFontSize: 9.5,
+                  selectedFontSize: 9.5,
+                  type: BottomNavigationBarType.fixed,
+                  fixedColor: ThemeStyle.grey,
+                  currentIndex: snapshot.data.index,
+                  onTap: _bottomNavBarBloc.pickItem,
+                  items: [
+                    BottomNavigationBarItem(
+                        icon: Icon(EvaIcons.homeOutline),
+                        label: "Home",
+                        activeIcon: Icon(EvaIcons.home)),
+                    BottomNavigationBarItem(
+                        icon: Icon(EvaIcons.gridOutline),
+                        label: "Source",
+                        activeIcon: Icon(EvaIcons.grid)),
+                    BottomNavigationBarItem(
+                        icon: Icon(EvaIcons.searchOutline),
+                        label: "Search",
+                        activeIcon: Icon(EvaIcons.search))
+                  ],
+                ),
               ),
             ),
           );
