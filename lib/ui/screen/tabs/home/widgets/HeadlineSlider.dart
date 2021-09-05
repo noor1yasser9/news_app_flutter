@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/bloc/GetTopHeadlinesBloc.dart';
 import 'package:news_app/model/article.dart';
 import 'package:news_app/model/article_response.dart';
+import 'package:news_app/ui/screen/SourceDetailsScreen.dart';
 import 'package:news_app/utils/Error.dart';
 import 'package:news_app/utils/loader.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -54,7 +55,9 @@ class _HeadlineSliderState extends State<HeadlineSlider> {
   getExpenseSlider(List<ArticleModel> article) {
     return article
         .map((e) => GestureDetector(
-              onTap: () {},
+              onTap: () {
+
+              },
               child: Container(
                 padding: EdgeInsets.only(
                     left: 5.0, right: 5.0, top: 10.0, bottom: 10.0),
