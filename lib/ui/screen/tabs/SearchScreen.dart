@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/bloc/SearchBloc.dart';
 import 'package:news_app/model/article.dart';
 import 'package:news_app/model/article_response.dart';
+import 'package:news_app/utils/NoData.dart';
 import 'package:news_app/utils/function.dart';
 import 'package:news_app/utils/loader.dart';
 
@@ -106,19 +107,7 @@ class _SearchScreenState extends State<SearchScreen> {
     List<ArticleModel> articles = data.articles;
 
     if (articles.length == 0) {
-      return Container(
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              "No more news",
-              style: TextStyle(color: Colors.black45),
-            ),
-          ],
-        ),
-      );
+      return buildNoDataWidget("No more news", context);
     } else
       return ListView.builder(
         itemCount: articles.length,
@@ -144,7 +133,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          articles[index].title??'',
+                          articles[index].title ?? '',
                           maxLines: 3,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -156,7 +145,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           height: 5,
                         ),
                         Text(
-                          articles[index].content??'',
+                          articles[index].content ?? '',
                           maxLines: 5,
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
