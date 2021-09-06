@@ -6,7 +6,6 @@ import 'package:news_app/model/source.dart';
 import 'package:news_app/style/ThemeStyle.dart';
 import 'package:news_app/utils/function.dart';
 import 'package:news_app/utils/loader.dart';
-import 'package:timeago/timeago.dart' as timeago;
 
 class SourceDetailsScreen extends StatefulWidget {
   final SourceModel source;
@@ -90,6 +89,7 @@ class _SourceDetailsScreen extends State<SourceDetailsScreen> {
                 ),
                 Text(
                   source.description,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 12.0,
@@ -167,43 +167,49 @@ class _SourceDetailsScreen extends State<SourceDetailsScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-
                         Text(
-                            articles[index].title,
-                            maxLines: 2,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontSize: 13.0)),
-                        SizedBox(height: 5,),
+                          articles[index].title ?? "",
+                          maxLines: 2,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 13.0,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
                         Text(
-                            articles[index].content,
-                            maxLines: 5,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white70
-                                ,
-                                fontSize: 12.0)),
+                          articles[index].content ?? '',
+                          maxLines: 5,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white70,
+                            fontSize: 12.0,
+                          ),
+                        ),
                         Expanded(
                             child: Align(
-                              alignment: Alignment.bottomLeft,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Row(
-                                    children: <Widget>[
-                                      Text(
-                                          timeUntil(
-                                              DateTime.parse(articles[index].date)),
-                                          style: TextStyle(
-                                              color: Colors.white38,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 10.0))
-                                    ],
-                                  ),
+                          alignment: Alignment.bottomLeft,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    timeUntil(
+                                        DateTime.parse(articles[index].date)),
+                                    style: TextStyle(
+                                      color: Colors.white38,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 10.0,
+                                    ),
+                                  )
                                 ],
                               ),
-                            ))
+                            ],
+                          ),
+                        ))
                       ],
                     ),
                   ),
@@ -211,8 +217,7 @@ class _SourceDetailsScreen extends State<SourceDetailsScreen> {
                       padding: EdgeInsets.only(right: 10.0),
                       width: MediaQuery.of(context).size.width * 2 / 5,
                       height: 130,
-                      child:
-                      FadeInImage.assetNetwork(
+                      child: FadeInImage.assetNetwork(
                           alignment: Alignment.topCenter,
                           placeholder: 'assets/img/placeholder.jpg',
                           image: articles[index].img == null
@@ -228,6 +233,4 @@ class _SourceDetailsScreen extends State<SourceDetailsScreen> {
         },
       );
   }
-
-
 }
