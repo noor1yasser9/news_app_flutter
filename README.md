@@ -2,6 +2,12 @@
 
 A Simple News App built with Flutter. In this app, there is a Home page, which will display top news from <a href="newsapi.org" target="_blank">newsapi</a>. News categories ranges from tech to entertainment. You can choose news category displayed on category page. App is providing a smooth and amazing design with gestures effect and smooth experience with android and iOS both platform.
 
+<p align="center"> 
+  Visitor count<br>
+  <img src="https://profile-counter.glitch.me/news_app_flutterNoor1yasser9/count.svg" />
+</p>
+<br/> 
+
 ## Getting Started 🚀
 
 ```shell
