@@ -2,31 +2,40 @@
 
 A Simple News App built with Flutter. In this app, there is a Home page, which will display top news from <a href="newsapi.org" target="_blank">newsapi</a>. News categories ranges from tech to entertainment. You can choose news category displayed on category page. App is providing a smooth and amazing design with gestures effect and smooth experience with android and iOS both platform.
 
+## Getting Started 🚀
+
+```shell
+- Clone the repo
+- Install the dependicies
+- Run it
+```
+
+## API 📃
+Register to newsapi.org and get the apiKey
+```
+final String apiKey = "USEYOURAPIKEYHERE";
+```
+
+## Screenshot 🔥
+![s – 6](https://user-images.githubusercontent.com/41232970/132247467-3175d9e1-d81a-46e8-8ae8-c1e3913ed0f5.png)
+
+
+## 🕹 Sample Video
+<video src="https://user-images.githubusercontent.com/41232970/129381717-6d83574b-90a9-4fbb-a442-dc45fb127bde.mp4"></video>
 
 ## 📃 Libraries used
-* [Lifecycle: Create a UI that automatically responds to lifecycle events.](https://developer.android.com/topic/libraries/architecture/lifecycle)
+* [bloc: Widgets that make it easy to integrate blocs and cubits into Flutter.](https://pub.dev/packages/flutter_bloc)
 
-* [LiveData: Build data objects that notify views when the underlying database changes.](https://developer.android.com/topic/libraries/architecture/livedata)
+* [RxDart: is an implementation of the popular reactiveX api for asynchronous programming, leveraging the native Dart Streams api.](https://pub.dev/packages/rxdart)
 
-* [ViewModel: Store UI-related data that isn't destroyed on app rotations. Easily schedule asynchronous tasks for optimal execution.](https://developer.android.com/topic/libraries/architecture/viewmodel)
+* [dio: A powerful Http client for Dart, which supports Interceptors, Global configuration,](https://pub.dev/packages/dio)
 
-* [Room: Access your app's SQLite database with in-app objects and compile-time checks.](https://developer.android.com/topic/libraries/architecture/room)
+* [eva_icons_flutter: is a pack of more than 480 beautifully crafted Open Source icons for common actions and items.](https://pub.dev/packages/eva_icons_flutter)
 
-* [Navigation: Handle everything needed for in-app navigation.](https://developer.android.com/topic/libraries/architecture/navigation/)
+* [carousel_slider: Support infinite scroll and custom child widget.](https://pub.dev/packages/carousel_slider)
 
-### Http
+* [timeago: A library useful for creating fuzzy timestamps. (e.g. "5 minutes ago")](https://pub.dev/packages/timeago)
 
-* [Retrofit2: Type-safe HTTP client for Android and Java by Square, Inc.](https://github.com/square/retrofit)
+* [flutter_html: A Flutter widget for rendering HTML and CSS as Flutter widgets.](https://pub.dev/packages/flutter_html)
 
-* [OkHttp: An HTTP+HTTP/2 client for Android and Java applications.](https://github.com/square/okhttp)
-
-### DI
-* [Dagger-hilt: Dependency injection with Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
-
-### Others
-
-* [Glide: An image loading and caching library for Android focused on smooth scrolling](https://github.com/bumptech/glide)
-
-* [Timber: A logger with a small, extensible API which provides utility on top of Android's normal Log class.](https://github.com/JakeWharton/timber)
-
-* [Wang.avi](https://github.com/81813780/AVLoadingIndicatorView)         
+* [url_launcher: Flutter plugin for launching a URL. Supports web, phone, SMS, and email schemes.](https://pub.dev/packages/url_launcher)
