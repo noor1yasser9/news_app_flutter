@@ -21,7 +21,7 @@ final String apiKey = "USEYOURAPIKEYHERE";
 
 
 ## 🕹 Sample Video
-<video src="https://user-images.githubusercontent.com/41232970/129381717-6d83574b-90a9-4fbb-a442-dc45fb127bde.mp4"></video>
+<video src="https://user-images.githubusercontent.com/41232970/132248269-6a812c4a-f840-4d23-ac46-c838192ba254.mp4"></video>
 
 ## 📃 Libraries used
 * [bloc: Widgets that make it easy to integrate blocs and cubits into Flutter.](https://pub.dev/packages/flutter_bloc)
