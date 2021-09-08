@@ -46,3 +46,4 @@ final String apiKey = "USEYOURAPIKEYHERE";
 * [flutter_html: A Flutter widget for rendering HTML and CSS as Flutter widgets.](https://pub.dev/packages/flutter_html)
 
 * [url_launcher: Flutter plugin for launching a URL. Supports web, phone, SMS, and email schemes.](https://pub.dev/packages/url_launcher)
+ 
